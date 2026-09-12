@@ -21,9 +21,10 @@ export type Beat = {
 export type Commute = {
   id: string;
   name: string;
-  miles: number;
-  minutes_typical: number;
-  note: string;
+  miles_listing: number | null;
+  miles_route: number | null;
+  minutes_route: number | null;
+  source: string;
 };
 
 export type Listing = {

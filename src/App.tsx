@@ -1,11 +1,13 @@
-import { useEffect, useState, type FormEvent } from "react";
-import Aerial from "./Aerial";
+import { lazy, Suspense, useEffect, useState, type FormEvent } from "react";
 import BuyerBot from "./BuyerBot";
 import Film from "./Film";
 import listingJson from "./listing.json";
-import Twin from "./Twin";
+import ShowingForm from "./ShowingForm";
 import type { Listing } from "./types";
 import Walkthrough from "./Walkthrough";
+
+const Twin = lazy(() => import("./Twin"));
+const Aerial = lazy(() => import("./Aerial"));
 
 const listing = listingJson as Listing;
 
@@ -30,8 +32,11 @@ const PLACE = {
   yearBuilt: String(listing.year_built),
 };
 
+const HOOK = "Main-floor primary · Wellesley East";
+
 export default function App() {
   const [sent, setSent] = useState(false);
+  const [tour, setTour] = useState(false);
   const [roomId, setRoomId] = useState("great-room");
   const agent = listing.agents[0];
   const line = `${listing.address.street}, ${listing.address.city}, ${listing.address.region}`;
@@ -46,19 +51,60 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = tour ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [tour]);
+
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSent(true);
   }
 
+  function commuteBits(c: Listing["commute"][number]) {
+    if (c.miles_listing != null) return `${c.miles_listing} mi listing`;
+    if (c.minutes_route != null) return `~${c.minutes_route} min est.`;
+    return "see note";
+  }
+
   return (
     <>
+      <header className="chrome">
+        <p>
+          <strong>{listing.price}</strong>
+          <span>{HOOK}</span>
+        </p>
+        <button type="button" onClick={() => setTour(true)}>
+          Schedule a tour
+        </button>
+      </header>
+
+      {tour ? (
+        <div className="tour-modal" role="dialog" aria-label="Schedule a tour" id="tour">
+          <button type="button" className="tour-dismiss" onClick={() => setTour(false)}>
+            Close
+          </button>
+          <p className="eyebrow">Private showings</p>
+          <h2>Schedule a tour</h2>
+          <p className="lede">
+            {line} · {listing.price}
+          </p>
+          <ShowingForm cta={listing.cta.label} sent={sent} onSubmit={onSubmit} />
+        </div>
+      ) : null}
+
       <Film beats={listing.beats} address={line} price={listing.price} />
       <Walkthrough listing={listing} />
-      <Twin listing={listing} roomId={roomId} onRoom={setRoomId} />
-      <Aerial listing={listing} />
+      <Suspense fallback={<section className="twin" id="twin"><p className="twin-caption">Loading the schematic twin…</p></section>}>
+        <Twin listing={listing} roomId={roomId} onRoom={setRoomId} />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Aerial listing={listing} />
+      </Suspense>
 
-      <section className="close">
+      <section className="close" id="contact">
         <p className="eyebrow">Private showings by appointment</p>
         <h1>137 Chertsey Drive</h1>
         <p className="lede">
@@ -70,47 +116,17 @@ export default function App() {
           {listing.commute.slice(0, 6).map((c) => (
             <li key={c.id}>
               <strong>{c.name}</strong>
-              <span>
-                ~{c.minutes_typical} min · {c.miles} mi
-              </span>
+              <span>{commuteBits(c)}</span>
             </li>
           ))}
         </ul>
+        <p className="commute-note">{listing.commute_note}</p>
         <p className="agent">
           {agent.name}
           <span>{agent.brokerage}</span>
           {agent.email ? <a href={`mailto:${agent.email}`}>{agent.email}</a> : null}
         </p>
-        {sent ? (
-          <p className="thanks">Request received. We will be in touch.</p>
-        ) : (
-          <form className="showing" name="showing" method="POST" data-netlify="true" onSubmit={onSubmit}>
-            <input type="hidden" name="form-name" value="showing" />
-            <p className="hp">
-              <label>
-                Don’t fill this out
-                <input name="bot-field" />
-              </label>
-            </p>
-            <label>
-              Name
-              <input name="name" type="text" required autoComplete="name" />
-            </label>
-            <label>
-              Email
-              <input name="email" type="email" required autoComplete="email" />
-            </label>
-            <label>
-              Phone
-              <input name="phone" type="tel" autoComplete="tel" />
-            </label>
-            <label>
-              Preferred date or question
-              <textarea name="message" rows={3} />
-            </label>
-            <button type="submit">{listing.cta.label}</button>
-          </form>
-        )}
+        <ShowingForm cta={listing.cta.label} sent={sent} onSubmit={onSubmit} />
       </section>
 
       <section className="gallery">
@@ -127,7 +143,7 @@ export default function App() {
         </div>
       </section>
 
-      <BuyerBot listing={listing} onRoom={setRoomId} />
+      <BuyerBot listing={listing} onRoom={setRoomId} onTour={() => setTour(true)} />
     </>
   );
 }

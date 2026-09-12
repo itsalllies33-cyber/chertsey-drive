@@ -14,15 +14,16 @@ const CHIPS = [
 type Props = {
   listing: Listing;
   onRoom?: (id: string) => void;
+  onTour?: () => void;
 };
 
-export default function BuyerBot({ listing, onRoom }: Props) {
+export default function BuyerBot({ listing, onRoom, onTour }: Props) {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState<Msg[]>([
     {
       role: "bot",
-      text: `I can help with ${listing.name}. Ask HOA, roof, commute, rooms, or a showing. I stay on published listing facts.`,
+      text: `I can help with ${listing.name}. HOA and roof come from the MLS. Commute minutes are estimates, not live traffic.`,
     },
   ]);
   const endRef = useRef<HTMLDivElement>(null);
@@ -79,11 +80,19 @@ export default function BuyerBot({ listing, onRoom }: Props) {
             />
             <button type="submit">Send</button>
           </form>
+          <p className="bot-disclaimer">
+            Answers come from this listing. Drive times and miles are approximate — not live traffic.
+          </p>
         </div>
       ) : (
-        <button type="button" className="bot-fab" onClick={() => setOpen(true)}>
-          Ask about this home
-        </button>
+        <div className="dock">
+          <button type="button" className="tour-fab" onClick={() => onTour?.()}>
+            Schedule a tour
+          </button>
+          <button type="button" className="bot-fab" onClick={() => setOpen(true)}>
+            Ask about this home
+          </button>
+        </div>
       )}
     </div>
   );

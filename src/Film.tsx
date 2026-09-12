@@ -14,6 +14,9 @@ type Props = {
   price: string;
 };
 
+/** Hold the frame for most of the beat, then snap. No lingering crossfade. */
+const HOLD = 0.97;
+
 function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
@@ -53,9 +56,11 @@ export default function Film({ beats, address, price }: Props) {
   const x = progress * Math.max(n - 1, 1);
   const from = Math.min(Math.floor(x), Math.max(n - 1, 0));
   const to = Math.min(from + 1, n - 1);
-  const t = reduce || from === to ? 0 : Math.min(x - from, 1);
-  const current = beats[t >= 0.5 ? to : from] ?? beats[0];
-  const next = from === to ? undefined : beats[to];
+  const rawT = reduce || from === to ? 0 : Math.min(x - from, 1);
+  const showTo = !reduce && from !== to && rawT >= HOLD;
+  const visible = showTo ? to : from;
+  const current = beats[visible] ?? beats[0];
+  const scrubFrom = showTo ? 1 : HOLD > 0 ? Math.min(rawT / HOLD, 1) : 0;
 
   useEffect(() => {
     if (reduce) return;
@@ -65,31 +70,23 @@ export default function Film({ beats, address, price }: Props) {
       v.pause();
       v.currentTime = Math.min(Math.max(local, 0), 1) * v.duration;
     };
-    apply(from, t);
-    if (next) apply(to, t);
-  }, [from, to, t, reduce, next, beats]);
+    apply(visible, showTo ? 0 : scrubFrom);
+  }, [visible, showTo, scrubFrom, reduce, beats]);
 
   return (
-    <div
-      className="film-track"
-      ref={trackRef}
-      style={{ height: `${n * 100}vh` }}
-    >
+    <div className="film-track" ref={trackRef} style={{ height: `${n * 100}vh` }}>
       <div className="film-stage">
         {beats.map((beat, idx) => {
-          let opacity = 0;
-          if (reduce) opacity = idx === from ? 1 : 0;
-          else if (idx === from) opacity = from === to ? 1 : 1 - t;
-          else if (idx === to) opacity = from === to ? 0 : t;
-          const active = opacity > 0.02;
+          const on = idx === visible;
+          const near = Math.abs(idx - from) <= 1;
           return (
             <div
               key={beat.id}
               className="film-layer"
-              style={{ opacity, zIndex: idx }}
-              aria-hidden={!active}
+              style={{ opacity: on ? 1 : 0, zIndex: idx, visibility: on ? "visible" : "hidden" }}
+              aria-hidden={!on}
             >
-              {beat.video ? (
+              {beat.video && near ? (
                 <video
                   ref={(el) => {
                     videoRefs.current[idx] = el;
@@ -99,20 +96,11 @@ export default function Film({ beats, address, price }: Props) {
                   poster={beat.still}
                   muted
                   playsInline
-                  preload="auto"
+                  preload={idx === visible ? "auto" : "metadata"}
                   disablePictureInPicture
                 />
               ) : (
-                <img
-                  className="film-media"
-                  src={beat.still}
-                  alt=""
-                  style={
-                    reduce
-                      ? undefined
-                      : { transform: `scale(${1 + 0.04 * (idx === from ? t : 1 - t)})` }
-                  }
-                />
+                <img className="film-media" src={beat.still} alt="" decoding="async" />
               )}
             </div>
           );

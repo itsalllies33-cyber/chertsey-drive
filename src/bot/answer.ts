@@ -3,8 +3,23 @@ import type { Listing } from "../types";
 
 const data = listing as Listing;
 
+const APPROX =
+  "Approximate only — not live traffic. Confirm in your own maps app before you rely on it.";
+
 function norm(q: string) {
   return q.toLowerCase().replace(/[’']/g, "'").trim();
+}
+
+function commuteLine(c: Listing["commute"][number]) {
+  const bits: string[] = [];
+  if (c.miles_listing != null) {
+    bits.push(`the listing commute page lists ${c.miles_listing} miles`);
+  }
+  if (c.minutes_route != null) {
+    const mi = c.miles_route != null ? ` / ${c.miles_route} mi on that route` : "";
+    bits.push(`open-road routing from this geocode was about ${c.minutes_route} minutes${mi}`);
+  }
+  return `${c.name}: ${bits.join("; ")}. ${c.source} ${APPROX}`;
 }
 
 export function answer(question: string): { text: string; roomId?: string } {
@@ -17,33 +32,35 @@ export function answer(question: string): { text: string; roomId?: string } {
 
   if (/(hoa|h\.o\.a|dues|association fee)/.test(q)) {
     return {
-      text: `HOA is $${data.hoa_monthly} per month ($${data.hoa_annual} a year), mandatory, paid to ${data.hoa_name}. The listing does not itemize what the dues cover.`,
+      text: `From the MLS listing: HOA is $${data.hoa_monthly} per month ($${data.hoa_annual} a year), mandatory, paid to ${data.hoa_name}. The listing does not itemize what the dues cover.`,
     };
   }
 
   if (/(roof|shingle|resurface|redone|replaced|reroof)/.test(q)) {
-    if (!data.roof_replaced) {
-      return {
-        text: `The listing does not say when the roof was last replaced. It lists a ${data.roof.toLowerCase()} roof on a home built in ${data.year_built}. Ask ${agent.name} for permits or a roof inspection.`,
-      };
-    }
-    return { text: `Roof last replaced: ${data.roof_replaced}. Type on the listing: ${data.roof}.` };
+    return {
+      text: `The listing does not say when the roof was last replaced or how old it is. It lists a ${data.roof.toLowerCase()} roof on a home built in ${data.year_built}. That is not a remaining-life estimate. Ask ${agent.name} for permits or a roof inspection.`,
+    };
   }
 
-  if (/(commute|drive time|how far|minutes to|traffic|i-?77)/.test(q) || /(charlotte|uptown|airport|clt|lowe|birkdale|lake norman|southpark|university|downtown)/.test(q)) {
-    const hit = data.commute.find((c) => q.includes(c.id) || q.includes(c.name.toLowerCase()) || (c.id === "airport" && /airport|clt/.test(q)) || (c.id === "lowes" && /lowe/.test(q)) || (c.id === "uptown" && /uptown|charlotte/.test(q)));
-    const row = hit ?? data.commute.find((c) => c.id === "uptown");
-    const list = data.commute
-      .slice(0, 6)
-      .map((c) => `${c.name}: ~${c.minutes_typical} min (${c.miles} mi)`)
+  if (
+    /(commute|drive time|how far|minutes to|traffic|i-?77)/.test(q) ||
+    /(charlotte|uptown|airport|clt|lowe|birkdale|lake norman|southpark|university|downtown)/.test(q)
+  ) {
+    const hit = data.commute.find(
+      (c) =>
+        q.includes(c.id) ||
+        q.includes(c.name.toLowerCase()) ||
+        (c.id === "airport" && /airport|clt/.test(q)) ||
+        (c.id === "lowes" && /lowe/.test(q)) ||
+        (c.id === "uptown" && /uptown|charlotte/.test(q)),
+    );
+    if (hit) return { text: commuteLine(hit) };
+    const listed = data.commute
+      .filter((c) => c.miles_listing != null)
+      .map((c) => `${c.name} ${c.miles_listing} mi on the listing commute page`)
       .join("; ");
-    if (hit) {
-      return {
-        text: `${hit.name} is about ${hit.minutes_typical} minutes typical (${hit.miles} miles). ${hit.note} ${data.commute_note}`,
-      };
-    }
     return {
-      text: `Typical drives from this address: ${list}. ${row ? `Uptown Charlotte is ~${row.minutes_typical} min typical.` : ""} ${data.commute_note}`,
+      text: `I do not have a live drive-time feed. ${listed}. Minutes on this page are uncongested OSRM routes from the listing geocode, not Google traffic. ${data.commute_note}`,
     };
   }
 
@@ -121,15 +138,15 @@ export function answer(question: string): { text: string; roomId?: string } {
     };
   }
 
-  if (/(3d|matterport|dollhouse|tour|twin)/.test(q)) {
+  if (/(3d|matterport|dollhouse|twin)/.test(q)) {
     return {
       text: `This page has a schematic dollhouse and floor plan from listing photos and published room facts — not a Matterport camera scan of this address. No Matterport showcase ID was published on the MLS syndication we used.`,
     };
   }
 
-  if (/(showing|visit|tour|see the house|agent|contact|email)/.test(q)) {
+  if (/(showing|visit|schedule|see the house|agent|contact|email)/.test(q)) {
     return {
-      text: `Showings by appointment. ${agent.name}, ${agent.brokerage}${agent.email ? `, ${agent.email}` : ""}. Use the request form on this page.`,
+      text: `Showings by appointment. ${agent.name}, ${agent.brokerage}${agent.email ? `, ${agent.email}` : ""}. Use Schedule a tour on this page.`,
     };
   }
 
@@ -140,6 +157,6 @@ export function answer(question: string): { text: string; roomId?: string } {
   }
 
   return {
-    text: `I only answer from this listing. I have price, HOA, roof type (no replacement date), commute estimates, rooms, and ${agent.name}'s email. Try “what's the HOA fee” or “how far is Uptown.”`,
+    text: `I only answer from this listing. I have price, HOA, roof type (no replacement date), commute figures with sources, rooms, and ${agent.name}'s email. Try “what's the HOA fee” or “how far is Uptown.”`,
   };
 }

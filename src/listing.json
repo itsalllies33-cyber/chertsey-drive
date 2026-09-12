@@ -60,70 +60,79 @@
   "parking": "Attached two-car garage on the main level (544 sq ft listed)",
   "fireplace": "Gas fireplace in the family room",
   "schools_note": "MLS school fields are unspecified. Compass maps this address to Mooresville Graded School District: Park View Elementary (1.3 mi), East Mooresville Intermediate (0.6 mi), Mooresville Middle (3.3 mi), Mooresville Senior High (1.9 mi). Confirm enrollment with the district.",
-  "commute_note": "Miles on Uptown, SouthPark, Ballantyne, the airport, University, Lake Norman, and Lake Wylie come from this listing’s own commute page. Drive minutes are typical OSRM routing from the Compass geocode (35.60157, -80.783578), uncongested. I-77 traffic can add time toward Charlotte.",
+  "commute_note": "Miles labeled listing come from this property’s syndication commute page (distance only). Minutes are uncongested OSRM routing from the Compass geocode 35.60157, -80.783578 — not live traffic, not Google. Approximate. Confirm in your own maps app.",
   "commute": [
     {
       "id": "downtown",
       "name": "Downtown Mooresville",
-      "miles": 2.4,
-      "minutes_typical": 7,
-      "note": "OSRM typical drive"
+      "miles_listing": null,
+      "miles_route": 2.4,
+      "minutes_route": 7,
+      "source": "OSRM from listing geocode, uncongested. Not on the listing commute page."
     },
     {
       "id": "lowes",
       "name": "Lowe’s headquarters",
-      "miles": 6.1,
-      "minutes_typical": 15,
-      "note": "OSRM typical drive to 1000 Lowe’s Blvd"
+      "miles_listing": null,
+      "miles_route": 6.1,
+      "minutes_route": 15,
+      "source": "OSRM from listing geocode toward 1000 Lowe’s Blvd, uncongested. Not on the listing commute page."
     },
     {
       "id": "i77",
       "name": "I-77 (Exit 36)",
-      "miles": 6.8,
-      "minutes_typical": 14,
-      "note": "OSRM typical drive"
+      "miles_listing": null,
+      "miles_route": 6.8,
+      "minutes_route": 14,
+      "source": "OSRM from listing geocode, uncongested. Not on the listing commute page."
     },
     {
       "id": "lake",
       "name": "Lake Norman",
-      "miles": 11.94,
-      "minutes_typical": 23,
-      "note": "Listing commute page 11.94 mi; OSRM ~23 min"
+      "miles_listing": 11.94,
+      "miles_route": 13.66,
+      "minutes_route": 23,
+      "source": "Listing commute page: 11.94 mi. OSRM minutes from geocode, uncongested."
     },
     {
       "id": "birkdale",
       "name": "Birkdale Village",
-      "miles": 15.8,
-      "minutes_typical": 24,
-      "note": "OSRM typical drive"
+      "miles_listing": null,
+      "miles_route": 15.8,
+      "minutes_route": 24,
+      "source": "OSRM from listing geocode, uncongested. Not on the listing commute page."
     },
     {
       "id": "university",
       "name": "University area",
-      "miles": 21.09,
-      "minutes_typical": 45,
-      "note": "Listing commute page 21.09 mi; OSRM ~45 min"
+      "miles_listing": 21.09,
+      "miles_route": 26.74,
+      "minutes_route": 45,
+      "source": "Listing commute page: 21.09 mi. OSRM minutes from geocode, uncongested."
     },
     {
       "id": "uptown",
       "name": "Uptown Charlotte",
-      "miles": 26.09,
-      "minutes_typical": 44,
-      "note": "Listing commute page 26.09 mi; OSRM ~44 min typical. I-77 peak on this corridor is often 50–70 min."
+      "miles_listing": 26.09,
+      "miles_route": 31.34,
+      "minutes_route": 44,
+      "source": "Listing commute page: 26.09 mi. OSRM minutes from geocode, uncongested."
     },
     {
       "id": "airport",
       "name": "Charlotte Douglas (CLT)",
-      "miles": 28.25,
-      "minutes_typical": 56,
-      "note": "Listing commute page 28.25 mi; OSRM ~56 min typical"
+      "miles_listing": 28.25,
+      "miles_route": 35.97,
+      "minutes_route": 56,
+      "source": "Listing commute page: 28.25 mi. OSRM minutes from geocode, uncongested."
     },
     {
       "id": "southpark",
       "name": "SouthPark",
-      "miles": 30.94,
-      "minutes_typical": 55,
-      "note": "Listing commute page 30.94 mi; OSRM ~55 min"
+      "miles_listing": 30.94,
+      "miles_route": 38.02,
+      "minutes_route": 55,
+      "source": "Listing commute page: 30.94 mi. OSRM minutes from geocode, uncongested."
     }
   ],
   "agents": [
@@ -149,7 +158,7 @@
       "still": "/stills/g-09.jpg",
       "notes": ["Covered porch on the listing"],
       "links": ["foyer", "garage"],
-      "box": { "x": 10, "z": 0, "w": 16, "d": 8, "h": 9 }
+      "box": { "x": 4, "z": 0, "w": 18, "d": 7, "h": 9 }
     },
     {
       "id": "garage",
@@ -158,7 +167,7 @@
       "still": "/stills/01-arrival.jpg",
       "notes": ["Attached two-car garage"],
       "links": ["porch"],
-      "box": { "x": 32, "z": 0, "w": 22, "d": 22, "h": 9 }
+      "box": { "x": 22, "z": 0, "w": 20, "d": 20, "h": 9 }
     },
     {
       "id": "foyer",
@@ -167,7 +176,7 @@
       "still": "/stills/g-10.jpg",
       "notes": ["Entrance foyer on the listing"],
       "links": ["porch", "dining", "great-room"],
-      "box": { "x": 12, "z": 8, "w": 10, "d": 8, "h": 9 }
+      "box": { "x": 4, "z": 7, "w": 10, "d": 9, "h": 9 }
     },
     {
       "id": "dining",
@@ -176,7 +185,7 @@
       "still": "/stills/g-10.jpg",
       "notes": ["Dining off the foyer in listing photos"],
       "links": ["foyer", "kitchen"],
-      "box": { "x": 22, "z": 8, "w": 14, "d": 12, "h": 9 }
+      "box": { "x": 14, "z": 7, "w": 8, "d": 9, "h": 9 }
     },
     {
       "id": "great-room",
@@ -185,7 +194,7 @@
       "still": "/stills/g-11.jpg",
       "notes": ["Open floor plan", "Gas fireplace in the family room"],
       "links": ["foyer", "kitchen", "screened", "primary"],
-      "box": { "x": 6, "z": 20, "w": 22, "d": 16, "h": 9 }
+      "box": { "x": 4, "z": 16, "w": 18, "d": 18, "h": 9 }
     },
     {
       "id": "kitchen",
@@ -194,7 +203,7 @@
       "still": "/stills/04-primary.jpg",
       "notes": ["Oversized island", "Stainless and granite", "Pantry"],
       "links": ["great-room", "breakfast", "dining"],
-      "box": { "x": 28, "z": 22, "w": 16, "d": 14, "h": 9 }
+      "box": { "x": 22, "z": 20, "w": 20, "d": 16, "h": 9 }
     },
     {
       "id": "breakfast",
@@ -203,7 +212,7 @@
       "still": "/stills/07-porch.jpg",
       "notes": ["Cozy breakfast area on the listing"],
       "links": ["kitchen"],
-      "box": { "x": 28, "z": 36, "w": 12, "d": 10, "h": 9 }
+      "box": { "x": 22, "z": 36, "w": 16, "d": 10, "h": 9 }
     },
     {
       "id": "primary",
@@ -212,7 +221,7 @@
       "still": "/stills/05-guest.jpg",
       "notes": ["Main-floor primary", "Walk-in closet", "Full bath on main"],
       "links": ["great-room"],
-      "box": { "x": 2, "z": 38, "w": 16, "d": 14, "h": 9 }
+      "box": { "x": 0, "z": 34, "w": 22, "d": 16, "h": 9 }
     },
     {
       "id": "guest",
@@ -221,7 +230,7 @@
       "still": null,
       "notes": ["Private guest suite on the main floor", "No separate still in this photo set"],
       "links": ["foyer"],
-      "box": { "x": 36, "z": 38, "w": 12, "d": 12, "h": 9 }
+      "box": { "x": 38, "z": 36, "w": 12, "d": 14, "h": 9 }
     },
     {
       "id": "screened",
@@ -230,7 +239,7 @@
       "still": "/stills/g-12.jpg",
       "notes": ["Screened back porch", "Fenced backyard"],
       "links": ["great-room", "yard"],
-      "box": { "x": 14, "z": 52, "w": 16, "d": 10, "h": 9 }
+      "box": { "x": 8, "z": 50, "w": 20, "d": 8, "h": 8 }
     },
     {
       "id": "yard",
@@ -239,7 +248,7 @@
       "still": "/stills/g-12.jpg",
       "notes": ["0.35 acre lot", "Back yard fenced"],
       "links": ["screened"],
-      "box": { "x": 8, "z": 62, "w": 28, "d": 12, "h": 1 }
+      "box": { "x": 4, "z": 58, "w": 32, "d": 12, "h": 0.2 }
     },
     {
       "id": "loft",
@@ -248,7 +257,7 @@
       "still": "/stills/03-kitchen.jpg",
       "notes": ["Huge loft / bonus", "Listing suggests media, play, office, or gym"],
       "links": ["upstairs-bed"],
-      "box": { "x": 8, "z": 20, "w": 24, "d": 16, "h": 8 }
+      "box": { "x": 4, "z": 16, "w": 34, "d": 18, "h": 8 }
     },
     {
       "id": "upstairs-bed",
@@ -257,7 +266,7 @@
       "still": null,
       "notes": ["One bedroom on the upper level", "No separate still in this photo set"],
       "links": ["loft", "upstairs-bath"],
-      "box": { "x": 8, "z": 38, "w": 16, "d": 14, "h": 8 }
+      "box": { "x": 4, "z": 34, "w": 16, "d": 14, "h": 8 }
     },
     {
       "id": "upstairs-bath",
@@ -266,7 +275,7 @@
       "still": null,
       "notes": ["Full bath on the upper level", "No separate still in this photo set"],
       "links": ["upstairs-bed"],
-      "box": { "x": 26, "z": 38, "w": 10, "d": 10, "h": 8 }
+      "box": { "x": 20, "z": 34, "w": 10, "d": 10, "h": 8 }
     }
   ],
   "beats": [
