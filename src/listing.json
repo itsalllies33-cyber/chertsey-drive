@@ -1,0 +1,383 @@
+{
+  "name": "137 Chertsey Drive",
+  "address": {
+    "street": "137 Chertsey Dr",
+    "city": "Mooresville",
+    "region": "NC",
+    "postal": "28115",
+    "country": "US"
+  },
+  "lat": 35.60157,
+  "lng": -80.783578,
+  "price": "$469,000",
+  "status": "For sale",
+  "mls": "4316531",
+  "beds": 3,
+  "baths": 3,
+  "baths_full": 3,
+  "baths_half": 0,
+  "sqft": 2646,
+  "sqft_main": 1860,
+  "sqft_upper": 786,
+  "lot_acres": 0.35,
+  "lot_sqft": 15246,
+  "year_built": 2012,
+  "builder": "Lennar",
+  "style": "Two-story",
+  "community": "Wellesley East",
+  "subdivision": "Wellesley East",
+  "hoa_monthly": 37,
+  "hoa_annual": 444,
+  "hoa_name": "Mainstreet Management",
+  "hoa_required": true,
+  "roof": "Composition",
+  "roof_replaced": null,
+  "story": "Coffee belongs on the screened porch first. Then the house opens: light through the great room, granite and stainless at the island, a breakfast table in the window. Two bedrooms already live on this floor — the primary with a walk-in, and a private guest suite — so the stairs are optional at night. Upstairs is the overflow: another bedroom, another full bath, and the loft the listing leaves open as media room, play space, office, or gym. Lennar built it in 2012 on a third of an acre in Wellesley East, two-car garage on the street, fence in back. The ask is $469,000.",
+  "description": "Beautiful and spacious 2-story home in the highly desirable Wellesley East neighborhood of Mooresville! This move-in ready property offers a thoughtfully designed layout with the perfect combination of comfort and style. The main floor features a luxurious primary suite with a walk-in closet and spacious bath, plus a private guest suite—ideal for visitors or multi-generational living. The open great room boasts abundant natural light and flows seamlessly into the gourmet kitchen, complete with an oversized island, stainless steel appliances, granite countertops, pantry, and cozy breakfast area—perfect for hosting gatherings. Upstairs offers even more living space with a generously sized bedroom, full bath, and a huge loft/bonus room that provides endless possibilities—media room, play area, office, or gym. Additional storage space is available to help keep everything organized. Outdoor living is a breeze with a welcoming covered front porch and a screened back porch perfect for morning coffee or unwinding in the evenings. This well-maintained home is located in a sought-after community close to shopping, dining, and top-rated Mooresville schools.",
+  "interior": [
+    "Attic stairs pulldown",
+    "Entrance foyer",
+    "Kitchen island",
+    "Open floorplan",
+    "Pantry",
+    "Storage",
+    "Walk-in closet(s)",
+    "French doors",
+    "Laundry room on the main level"
+  ],
+  "appliances": [
+    "Dishwasher",
+    "Disposal",
+    "Dryer",
+    "Gas range",
+    "Gas water heater",
+    "Microwave",
+    "Refrigerator",
+    "Washer"
+  ],
+  "heating": "Central, forced air",
+  "cooling": "Ceiling fans, central air",
+  "parking": "Attached two-car garage on the main level (544 sq ft listed)",
+  "fireplace": "Gas fireplace in the family room",
+  "schools_note": "MLS school fields are unspecified. Compass maps this address to Mooresville Graded School District: Park View Elementary (1.3 mi), East Mooresville Intermediate (0.6 mi), Mooresville Middle (3.3 mi), Mooresville Senior High (1.9 mi). Confirm enrollment with the district.",
+  "commute_note": "Miles on Uptown, SouthPark, Ballantyne, the airport, University, Lake Norman, and Lake Wylie come from this listing’s own commute page. Drive minutes are typical OSRM routing from the Compass geocode (35.60157, -80.783578), uncongested. I-77 traffic can add time toward Charlotte.",
+  "commute": [
+    {
+      "id": "downtown",
+      "name": "Downtown Mooresville",
+      "miles": 2.4,
+      "minutes_typical": 7,
+      "note": "OSRM typical drive"
+    },
+    {
+      "id": "lowes",
+      "name": "Lowe’s headquarters",
+      "miles": 6.1,
+      "minutes_typical": 15,
+      "note": "OSRM typical drive to 1000 Lowe’s Blvd"
+    },
+    {
+      "id": "i77",
+      "name": "I-77 (Exit 36)",
+      "miles": 6.8,
+      "minutes_typical": 14,
+      "note": "OSRM typical drive"
+    },
+    {
+      "id": "lake",
+      "name": "Lake Norman",
+      "miles": 11.94,
+      "minutes_typical": 23,
+      "note": "Listing commute page 11.94 mi; OSRM ~23 min"
+    },
+    {
+      "id": "birkdale",
+      "name": "Birkdale Village",
+      "miles": 15.8,
+      "minutes_typical": 24,
+      "note": "OSRM typical drive"
+    },
+    {
+      "id": "university",
+      "name": "University area",
+      "miles": 21.09,
+      "minutes_typical": 45,
+      "note": "Listing commute page 21.09 mi; OSRM ~45 min"
+    },
+    {
+      "id": "uptown",
+      "name": "Uptown Charlotte",
+      "miles": 26.09,
+      "minutes_typical": 44,
+      "note": "Listing commute page 26.09 mi; OSRM ~44 min typical. I-77 peak on this corridor is often 50–70 min."
+    },
+    {
+      "id": "airport",
+      "name": "Charlotte Douglas (CLT)",
+      "miles": 28.25,
+      "minutes_typical": 56,
+      "note": "Listing commute page 28.25 mi; OSRM ~56 min typical"
+    },
+    {
+      "id": "southpark",
+      "name": "SouthPark",
+      "miles": 30.94,
+      "minutes_typical": 55,
+      "note": "Listing commute page 30.94 mi; OSRM ~55 min"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Versha Anand",
+      "brokerage": "Versha Anand Realty",
+      "phone": "",
+      "email": "versha@vershaanandrealty.com"
+    }
+  ],
+  "cta": {
+    "label": "Request a showing",
+    "phone": "",
+    "email": "versha@vershaanandrealty.com"
+  },
+  "source_url": "https://www.redfin.com/NC/Mooresville/137-Chertsey-Dr-28115/home/51555335",
+  "source_url_realtor": "https://www.realtor.com/realestateandhomes-detail/137-Chertsey-Dr_Mooresville_NC_28115_M69662-20862",
+  "rooms": [
+    {
+      "id": "porch",
+      "name": "Front porch",
+      "floor": "main",
+      "still": "/stills/g-09.jpg",
+      "notes": ["Covered porch on the listing"],
+      "links": ["foyer", "garage"],
+      "box": { "x": 10, "z": 0, "w": 16, "d": 8, "h": 9 }
+    },
+    {
+      "id": "garage",
+      "name": "Garage",
+      "floor": "main",
+      "still": "/stills/01-arrival.jpg",
+      "notes": ["Attached two-car garage"],
+      "links": ["porch"],
+      "box": { "x": 32, "z": 0, "w": 22, "d": 22, "h": 9 }
+    },
+    {
+      "id": "foyer",
+      "name": "Foyer",
+      "floor": "main",
+      "still": "/stills/g-10.jpg",
+      "notes": ["Entrance foyer on the listing"],
+      "links": ["porch", "dining", "great-room"],
+      "box": { "x": 12, "z": 8, "w": 10, "d": 8, "h": 9 }
+    },
+    {
+      "id": "dining",
+      "name": "Dining",
+      "floor": "main",
+      "still": "/stills/g-10.jpg",
+      "notes": ["Dining off the foyer in listing photos"],
+      "links": ["foyer", "kitchen"],
+      "box": { "x": 22, "z": 8, "w": 14, "d": 12, "h": 9 }
+    },
+    {
+      "id": "great-room",
+      "name": "Great room",
+      "floor": "main",
+      "still": "/stills/g-11.jpg",
+      "notes": ["Open floor plan", "Gas fireplace in the family room"],
+      "links": ["foyer", "kitchen", "screened", "primary"],
+      "box": { "x": 6, "z": 20, "w": 22, "d": 16, "h": 9 }
+    },
+    {
+      "id": "kitchen",
+      "name": "Kitchen",
+      "floor": "main",
+      "still": "/stills/04-primary.jpg",
+      "notes": ["Oversized island", "Stainless and granite", "Pantry"],
+      "links": ["great-room", "breakfast", "dining"],
+      "box": { "x": 28, "z": 22, "w": 16, "d": 14, "h": 9 }
+    },
+    {
+      "id": "breakfast",
+      "name": "Breakfast",
+      "floor": "main",
+      "still": "/stills/07-porch.jpg",
+      "notes": ["Cozy breakfast area on the listing"],
+      "links": ["kitchen"],
+      "box": { "x": 28, "z": 36, "w": 12, "d": 10, "h": 9 }
+    },
+    {
+      "id": "primary",
+      "name": "Primary suite",
+      "floor": "main",
+      "still": "/stills/05-guest.jpg",
+      "notes": ["Main-floor primary", "Walk-in closet", "Full bath on main"],
+      "links": ["great-room"],
+      "box": { "x": 2, "z": 38, "w": 16, "d": 14, "h": 9 }
+    },
+    {
+      "id": "guest",
+      "name": "Guest suite",
+      "floor": "main",
+      "still": null,
+      "notes": ["Private guest suite on the main floor", "No separate still in this photo set"],
+      "links": ["foyer"],
+      "box": { "x": 36, "z": 38, "w": 12, "d": 12, "h": 9 }
+    },
+    {
+      "id": "screened",
+      "name": "Screened porch",
+      "floor": "main",
+      "still": "/stills/g-12.jpg",
+      "notes": ["Screened back porch", "Fenced backyard"],
+      "links": ["great-room", "yard"],
+      "box": { "x": 14, "z": 52, "w": 16, "d": 10, "h": 9 }
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "floor": "outside",
+      "still": "/stills/g-12.jpg",
+      "notes": ["0.35 acre lot", "Back yard fenced"],
+      "links": ["screened"],
+      "box": { "x": 8, "z": 62, "w": 28, "d": 12, "h": 1 }
+    },
+    {
+      "id": "loft",
+      "name": "Loft",
+      "floor": "upper",
+      "still": "/stills/03-kitchen.jpg",
+      "notes": ["Huge loft / bonus", "Listing suggests media, play, office, or gym"],
+      "links": ["upstairs-bed"],
+      "box": { "x": 8, "z": 20, "w": 24, "d": 16, "h": 8 }
+    },
+    {
+      "id": "upstairs-bed",
+      "name": "Upstairs bedroom",
+      "floor": "upper",
+      "still": null,
+      "notes": ["One bedroom on the upper level", "No separate still in this photo set"],
+      "links": ["loft", "upstairs-bath"],
+      "box": { "x": 8, "z": 38, "w": 16, "d": 14, "h": 8 }
+    },
+    {
+      "id": "upstairs-bath",
+      "name": "Upstairs bath",
+      "floor": "upper",
+      "still": null,
+      "notes": ["Full bath on the upper level", "No separate still in this photo set"],
+      "links": ["upstairs-bed"],
+      "box": { "x": 26, "z": 38, "w": 10, "d": 10, "h": 8 }
+    }
+  ],
+  "beats": [
+    {
+      "id": "arrival",
+      "title": "Arrival",
+      "bullets": [
+        "Wellesley East, Mooresville",
+        "Covered front porch",
+        "Two-car attached garage"
+      ],
+      "still": "/stills/01-arrival.jpg",
+      "video": "/film/act-one.mp4"
+    },
+    {
+      "id": "living",
+      "title": "Great room",
+      "bullets": [
+        "Open floor plan",
+        "Gas fireplace in the family room",
+        "Flows into the kitchen"
+      ],
+      "still": "/stills/02-living.jpg",
+      "video": "/film/02-living.mp4"
+    },
+    {
+      "id": "kitchen",
+      "title": "Kitchen",
+      "bullets": [
+        "Oversized island",
+        "Stainless appliances, granite",
+        "Pantry and breakfast area"
+      ],
+      "still": "/stills/04-primary.jpg",
+      "video": "/film/03-kitchen.mp4"
+    },
+    {
+      "id": "primary",
+      "title": "Primary suite",
+      "bullets": [
+        "Main-floor bedroom",
+        "Walk-in closet on the listing",
+        "Guest suite also on this floor"
+      ],
+      "still": "/stills/05-guest.jpg",
+      "video": "/film/04-primary.mp4"
+    },
+    {
+      "id": "loft",
+      "title": "Upstairs loft",
+      "bullets": [
+        "Huge loft / bonus room",
+        "Media, office, or gym",
+        "Bedroom and full bath upstairs"
+      ],
+      "still": "/stills/03-kitchen.jpg",
+      "video": "/film/05-loft.mp4"
+    },
+    {
+      "id": "threshold",
+      "title": "Toward the porch",
+      "bullets": [
+        "French doors off the great room",
+        "Covered and screened porches",
+        "0.35 acre lot"
+      ],
+      "still": "/stills/06-loft.jpg",
+      "video": "/film/06-threshold.mp4"
+    },
+    {
+      "id": "yard",
+      "title": "The yard",
+      "bullets": [
+        "Screened back porch",
+        "Fenced backyard",
+        "0.35 acre lot"
+      ],
+      "still": "/stills/g-12.jpg",
+      "video": "/film/07-yard.mp4"
+    }
+  ],
+  "gallery": [
+    { "src": "/stills/01-arrival.jpg", "alt": "Front elevation and garage" },
+    { "src": "/stills/g-08.jpg", "alt": "Street view of the house" },
+    { "src": "/stills/g-09.jpg", "alt": "Covered front porch" },
+    { "src": "/stills/g-10.jpg", "alt": "Foyer and dining" },
+    { "src": "/stills/g-11.jpg", "alt": "Great room with fireplace and stair" },
+    { "src": "/stills/02-living.jpg", "alt": "Great room toward the kitchen" },
+    { "src": "/stills/04-primary.jpg", "alt": "Kitchen island" },
+    { "src": "/stills/07-porch.jpg", "alt": "Breakfast area" },
+    { "src": "/stills/05-guest.jpg", "alt": "Primary bedroom" },
+    { "src": "/stills/03-kitchen.jpg", "alt": "Upstairs loft" },
+    { "src": "/stills/06-loft.jpg", "alt": "Great room toward the porch" },
+    { "src": "/stills/g-12.jpg", "alt": "Patio, fence, and screened porch" }
+  ],
+  "aerials": [
+    {
+      "src": "/stills/aerial-lot.jpg",
+      "alt": "Satellite view of the lot and neighboring houses",
+      "caption": "The lot and the street. 0.35 acre (15,246 sq ft). Satellite, not a listing drone."
+    },
+    {
+      "src": "/stills/aerial-neighborhood.jpg",
+      "alt": "Satellite view of Wellesley East",
+      "caption": "Wellesley East from above — courts, fields, and the cul-de-sacs around Chertsey."
+    },
+    {
+      "src": "/stills/aerial-context.jpg",
+      "alt": "Wider satellite of east Mooresville toward Lake Norman",
+      "caption": "East Mooresville in context. Lake Norman is the dark water at left. Imagery © Esri."
+    }
+  ],
+  "walkthrough": "/film/walkthrough.mp4"
+}
